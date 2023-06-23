@@ -1,0 +1,195 @@
+*{
+    margin: 0 ;
+    padding: 0 ;
+    box-sizing: border-box;
+}
+/* reset a setting */
+
+li {
+    list-style: none;
+}
+
+a {
+    padding: 0 20px;
+    text-decoration: none;
+    font-size: 24px;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+p {
+    font-size: 24px;
+}
+
+/* ----------------------------------------nav---------------------------------------- */
+nav {
+    display: flex; /*  */
+    align-items: center;
+    justify-content: space-between;
+
+    height: 80px;
+    background-color: antiquewhite;
+}
+
+#home {
+    margin-left: auto; /* This property means giving the left side the remaining space */
+}
+
+/* ----------------------------------------footer---------------------------------------- */
+footer {
+    display: flex; 
+    justify-content: center;
+    align-items: end;
+
+    height: 100px;
+    padding-bottom: 15px;
+    background-color: antiquewhite;
+}
+
+/* ----------------------------------------index---------------------------------------- */
+
+/* -----container named "hero"----- */
+.hero {
+    position: relative; /* specify "relative" to place <h1> in the specified location */
+}
+
+.hero img {
+    height: 400px;
+    width: 100%;
+    object-fit:cover /* maintain vertical and horizontal image proportions */
+}
+
+#name {
+    position: absolute; /* This <h1> is positioned relative to <div class="hero">*/
+    top: 50%;  /* move the top corner of the element to the center of its parent */
+    left: 50%; /* move the left corner of the element to the center of its parent */
+    transform: translate(-50%, -50%); /* move the center of the element to the center of its parent */
+    font-size: 96px;
+    color: white;
+}
+
+/* -----container named "introduction"----- */
+.introduction h1, 
+.introduction p {
+    text-align: center;
+    margin-top: 20px;
+    padding: 0 100px;
+}
+
+.point {
+    padding: 0;
+    color: #455f03;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: underline #455f03;
+}
+
+.point:visited {
+    color: #455f03;
+}
+
+/* ----------------------------------------character---------------------------------------- */
+.character {
+    margin: 40px 80px;
+    padding: 30px;
+    border: 10px solid black;
+    text-align: center;
+}
+
+.character img {
+    width: 50%;
+    height: 500px;
+    object-fit: cover;
+    margin: 0 auto;
+    background-color: bisque;
+}
+
+/* ----------------------------------------garalley---------------------------------------- */
+.gallery-container {
+    display: flex; /* sidebars and galleries arranged side by side */
+}
+
+/* -----container named "sidebar"----- */
+.sidebar {
+    display: flex;
+    flex-direction: column; /* display links vertically */
+    
+    width: 20%;
+    padding-top: 50px;
+    text-align: center;
+    background-color: azure;
+}
+
+.sidebar li {
+    height: 40px;
+    margin: 10px;
+}
+
+/* -----container named "gallery"----- */
+.gallery {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    width: 80%;
+}
+
+.gallery img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin: 25px 0;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+    transition: transform .5s;
+}
+
+/* ----------------------------------------detail1 & detail2---------------------------------------- */
+.detail1-container, .detail2-container {
+    height: 700px;
+    padding: 50px;
+}
+
+.detail1-container img {
+    float: left;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.detail2-container img {
+    float: right;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.detail1-container h1, 
+.detail1-container p,
+.detail2-container h1, 
+.detail2-container p {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+
+/*  */

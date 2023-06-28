@@ -3,69 +3,75 @@
     padding: 0 ;
     box-sizing: border-box;
 }
-/* reset a setting */
 
-li {
-    list-style: none;
+html {
+    --body-color: #0f0e17;
+    --primaly-color: #fffffe;
+    --secondary-color: #ff8906;
+    --paragraph-color: #a7a9be;
+}
+
+/* ----------------------------- For Mobile ----------------------------- */
+body {
+    background-color: var(--body-color);
 }
 
 a {
-    padding: 0 20px;
+    padding: 0 10px;
     text-decoration: none;
-    font-size: 24px;
-    color: black;
-}
-
-a:visited {
-    color: black;
-}
-
-a:hover {
-    text-decoration: underline;
+    font-size: 1em;
+    color: var(--paragraph-color);
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 1.5em;
+    color: var(--secondary-color);
 }
 
 p {
-    font-size: 24px;
+    font-size: 1em;
+    color: var(--paragraph-color);
 }
 
-/* ----------------------------------------nav---------------------------------------- */
+/* nav */
 nav {
-    display: flex; /*  */
+    display: flex; 
     align-items: center;
     justify-content: space-between;
 
-    height: 80px;
-    background-color: antiquewhite;
+    height: 5vh;
+    background-color: var(--primary-color);
+}
+
+nav img {
+    display: none;
 }
 
 #home {
     margin-left: auto; /* This property means giving the left side the remaining space */
 }
 
-/* ----------------------------------------footer---------------------------------------- */
+/* footer */
 footer {
     display: flex; 
     justify-content: center;
-    align-items: end;
-
-    height: 100px;
-    padding-bottom: 15px;
-    background-color: antiquewhite;
+    align-items: center;
+    height: 5vh;
+    background-color: var(--primary-color);
 }
 
-/* ----------------------------------------index---------------------------------------- */
+/* index */
+.index {
+    padding-bottom: 10px;
+}
 
-/* -----container named "hero"----- */
+/* container named "hero" */
 .hero {
     position: relative; /* specify "relative" to place <h1> in the specified location */
 }
 
 .hero img {
-    height: 400px;
+    height: 20vh;
     width: 100%;
     object-fit:cover /* maintain vertical and horizontal image proportions */
 }
@@ -75,98 +81,124 @@ footer {
     top: 50%;  /* move the top corner of the element to the center of its parent */
     left: 50%; /* move the left corner of the element to the center of its parent */
     transform: translate(-50%, -50%); /* move the center of the element to the center of its parent */
-    font-size: 96px;
+    font-size: 2.5em;
+    font-weight: 700;
     color: white;
+    text-align: center;
 }
 
-/* -----container named "introduction"----- */
+/* container named "introduction" */
 .introduction h1, 
 .introduction p {
     text-align: center;
     margin-top: 20px;
-    padding: 0 100px;
+    padding: 0 10vw;
 }
 
 .point {
-    padding: 0;
-    color: #455f03;
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: underline #455f03;
+    color: var(--secondary-color);
+    font-size: 1em;
+    font-weight: 600;
+    text-decoration: underline var(--secondary-color);
 }
 
-.point:visited {
-    color: #455f03;
+/* title-chara */
+.title-chara {
+    text-align: center;
+    margin-top: 20px;
+    padding: 0 20vw;
 }
 
-/* ----------------------------------------character---------------------------------------- */
+/* character */
 .character {
-    margin: 40px 80px;
-    padding: 30px;
-    border: 10px solid black;
+    margin: 5vh 10vw;
+    padding: 20px;
+    border: .5em solid var(--secondary-color);
     text-align: center;
 }
 
 .character img {
-    width: 50%;
-    height: 500px;
+    width: 300px;
+    height: 450px;
     object-fit: cover;
     margin: 0 auto;
-    background-color: bisque;
 }
 
-/* ----------------------------------------garalley---------------------------------------- */
+/* garalley */
 .gallery-container {
     display: flex; /* sidebars and galleries arranged side by side */
 }
 
-/* -----container named "sidebar"----- */
+/* container named "sidebar" */
 .sidebar {
     display: flex;
     flex-direction: column; /* display links vertically */
     
     width: 20%;
-    padding-top: 50px;
+    padding-top: 20px;
     text-align: center;
-    background-color: azure;
+    background-color: var(--body-color);
+    border-right: 1px solid var(--primaly-color);
 }
 
 .sidebar li {
-    height: 40px;
-    margin: 10px;
+    height: 1.5em;
 }
 
-/* -----container named "gallery"----- */
+/* container named "gallery" */
 .gallery {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-
     width: 80%;
+    margin: 0 auto;
 }
 
-.gallery img {
+.gallery h1 {
+    text-align: center;
+    margin-top: 20px;
+    padding: 0 10vw;
+}
+
+.item-container {
+    display: grid;
+    grid-template-columns: repeat(1, 250px);
+    grid-template-rows: repeat(14, 250px);
+    gap: 5vw;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 250px;
+}
+
+.img-container {
+    overflow: hidden;
+}
+
+.img-container a {
+    padding: 0;
+    margin: 0;
+}
+
+.img-container img {
+    transition: .5s all;
     width: 250px;
     height: 250px;
     object-fit: cover;
-    margin: 25px 0;
+    margin: 0 auto;
 }
 
-.gallery img:hover {
-    transform: scale(1.1);
-    transition: transform .5s;
+.img-container img:hover {
+    transform: scale(1.1,1.1);
+    transition: .5s all;
 }
 
-/* ----------------------------------------detail1 & detail2---------------------------------------- */
+/* detail1 & detail2 */
 .detail1-container, .detail2-container {
-    height: 700px;
-    padding: 50px;
+    padding: 20px;
 }
 
 .detail1-container img {
     float: left;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
 
     margin-right: 20px;
@@ -175,8 +207,8 @@ footer {
 
 .detail2-container img {
     float: right;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
 
     margin-left: 20px;
@@ -192,4 +224,416 @@ footer {
 }
 
 
-/*  */
+
+/* ----------------------------- For Tablet ----------------------------- */
+@media (min-width:750px) {
+    a {
+        padding: 0 20px;
+        text-decoration: none;
+        font-size: 1.2em;
+        color: var(--paragraph-color);
+    }
+    
+    h1 {
+        font-size: 2em;
+        color: var(--secondary-color);
+    }
+    
+    p {
+        font-size: 1.2em;
+        color: var(--paragraph-color);
+    }
+    
+    /* nav */
+    nav {
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+    
+        height: 7vh;
+        background-color: var(--body-color);
+    }
+
+    nav img {
+        height: 5vh;
+    }
+    
+    #home {
+        margin-left: auto; /* This property means giving the left side the remaining space */
+    }
+    
+    /* footer */
+    footer {
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        height: 7vh;
+        background-color: var(--body-color);
+    }
+    
+    /* index */
+    .index {
+        padding-bottom: 10px;
+    }
+    
+    /* container named "hero" */
+    .hero {
+        position: relative; /* specify "relative" to place <h1> in the specified location */
+    }
+    
+    .hero img {
+        height: 30vh;
+        width: 100%;
+        object-fit:cover /* maintain vertical and horizontal image proportions */
+    }
+    
+    #name {
+        position: absolute; /* This <h1> is positioned relative to <div class="hero">*/
+        top: 50%;  /* move the top corner of the element to the center of its parent */
+        left: 50%; /* move the left corner of the element to the center of its parent */
+        transform: translate(-50%, -50%); /* move the center of the element to the center of its parent */
+        font-size: 4em;
+        font-weight: 700;
+        color: var(--primaly-color);
+        text-align: center;
+    }
+    
+    /* container named "introduction" */
+    .introduction h1, 
+    .introduction p {
+        text-align: center;
+        margin-top: 20px;
+        padding: 0 10vw;
+    }
+    
+    .point {
+        color: var(--secondary-color);
+        font-size: 1.1em;
+        font-weight: 600;
+        text-decoration: underline var(--secondary-color);
+    }
+
+    /* title-chara */
+    .title-chara {
+        text-align: center;
+        margin-top: 20px;
+        padding: 0 20vw;
+    }
+    
+    /* character */
+    .character {
+        margin: 5vh 10vw;
+        padding: 40px;
+        border: .5em solid var(--primary-color);
+        text-align: center;
+    }
+    
+    .character img {
+        width: 400px;
+        height: 600px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+    
+    /* garalley */
+    .gallery-container {
+        display: flex; /* sidebars and galleries arranged side by side */
+    }
+    
+    /* container named "sidebar" */
+    .sidebar {
+        display: flex;
+        flex-direction: column; /* display links vertically */
+        
+        width: 20%;
+        padding-top: 30px;
+        text-align: center;
+        background-color: var(--body-color);
+        border-right: 1px solid var(--secondary-color);
+    }
+    
+    .sidebar li {
+        height: 1.5em;
+    }
+    
+    /* container named "gallery" */
+    .gallery {
+        width: 80%;
+    }
+
+    .gallery h1 {
+        text-align: center;
+        margin-top: 20px;
+        padding: 0 10vw;
+    }
+
+    .item-container {
+        display: grid;
+        grid-template-columns: repeat(2, 250px);
+        grid-template-rows: repeat(7, 250px);
+        gap: 5vw;
+        margin: 0 auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        width: 540px;
+    }
+
+    .img-container {
+        overflow: hidden;
+    }
+
+    .img-container a {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .img-container img {
+        transition: .5s all;
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+    
+    .img-container img:hover {
+        transform: scale(1.1,1.1);
+        transition: .5s all;
+    }
+    
+    /* detail1 & detail2 */
+    .detail1-container, .detail2-container {
+        padding: 20px;
+    }
+    
+    .detail1-container img {
+        float: left;
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+    
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .detail2-container img {
+        float: right;
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+    
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .detail1-container h1, 
+    .detail1-container p,
+    .detail2-container h1, 
+    .detail2-container p {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+}
+
+
+/* ----------------------------- For Desktop ----------------------------- */
+@media (min-width:970px) {
+    a {
+        padding: 0 20px;
+        text-decoration: none;
+        font-size: 1.5em;
+        color: var(--paragraph-color);
+    }
+    
+    h1 {
+        font-size: 2.5em;
+        color: var(--secondary-color);
+    }
+    
+    p {
+        font-size: 1.5em;
+        color: var(--paragraph-color);
+    }
+    
+    /* nav */
+    nav {
+        display: flex; 
+        align-items: center;
+        justify-content: space-between;
+    
+        height: 10vh;
+        background-color: var(--body-color);
+    }
+    
+    #home {
+        margin-left: auto; /* This property means giving the left side the remaining space */
+    }
+    
+    /* footer */
+    footer {
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        background-color: var(--body-color);
+    }
+    
+    /* index */
+    .index {
+        padding-bottom: 20px;
+    }
+    
+    /* container named "hero" */
+    .hero {
+        position: relative; /* specify "relative" to place <h1> in the specified location */
+    }
+    
+    .hero img {
+        height: 40vh;
+        width: 100%;
+        object-fit:cover /* maintain vertical and horizontal image proportions */
+    }
+    
+    #name {
+        position: absolute; /* This <h1> is positioned relative to <div class="hero">*/
+        top: 50%;  /* move the top corner of the element to the center of its parent */
+        left: 50%; /* move the left corner of the element to the center of its parent */
+        transform: translate(-50%, -50%); /* move the center of the element to the center of its parent */
+        font-size: 6em;
+        font-weight: 800;
+        color: var(--primaly-color);
+    }
+    
+    /* container named "introduction" */
+    .introduction h1, 
+    .introduction p {
+        text-align: center;
+        margin-top: 20px;
+        padding: 0 20vw;
+    }
+    
+    .point {
+        color: var(--secondary-color);
+        font-size: 1.1em;
+        font-weight: 550;
+        text-decoration: underline var(--secondary-color);
+    }
+
+    /* title-chara */
+    .title-chara {
+        text-align: center;
+        margin-top: 20px;
+        padding: 0 20vw;
+    }
+    
+    /* character */
+    .character {
+        margin: 5vh 10vw;
+        padding: 30px;
+        border: .5em solid var(--secondary-color);
+        text-align: center;
+    }
+    
+    .character img {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+    
+    /* garalley */
+    .gallery-container {
+        display: flex; /* sidebars and galleries arranged side by side */
+    }
+    
+    /* container named "sidebar" */
+    .sidebar {
+        display: flex;
+        flex-direction: column; /* display links vertically */
+        
+        width: 20%;
+        padding-top: 50px;
+        text-align: center;
+        background-color: var(--body-color);
+        border-right: 1px solid var(--secondary-color);
+    }
+    
+    .sidebar li {
+        height: 2em;
+    }
+    
+    /* container named "gallery" */
+    .gallery {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .gallery h1 {
+        text-align: center;
+        margin-top: 20px;
+        padding: 0 20vw;
+    }
+
+    .item-container {
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 270px);
+        grid-template-rows: repeat(4, 270px);
+        gap: 1vw;
+        width: 1130px;
+    }
+
+    .img-container {
+        overflow: hidden;
+    }
+
+    .img-container a {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .img-container img {
+        transition: .5s all;
+        width: 270px;
+        height: 270px;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+    
+    .img-container img:hover {
+        transform: scale(1.1,1.1);
+        transition: .5s all;
+    }
+    
+    /* detail1 & detail2 */
+    .detail1-container, .detail2-container {
+        padding: 50px;
+    }
+    
+    .detail1-container img {
+        float: left;
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .detail2-container img {
+        float: right;
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .detail1-container h1, 
+    .detail1-container p,
+    .detail2-container h1, 
+    .detail2-container p {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+}

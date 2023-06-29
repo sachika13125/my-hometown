@@ -10,13 +10,26 @@
 
     <body>
         <!-- This is a navigation bar using flex container to align anchor tags horizontally -->
+        
+        <input type="checkbox" id="toggle">
+
         <nav>
-            <a href="index.html"><img src="imgs/icon.svg" alt=""></a>
-            <a id="home" href="index.html">Home</a>
-            <a href="pages/character.html">Gunma-chan</a>
-            <a href="pages/gallery.html">Gallery</a>
-            <a href="pages/detail1.html">Kusastu</a>
-            <a href="pages/detail2.html">Subaru</a>   
+            <a class="navbar-name" href="index.html">Hometown</a>
+
+            <label class="navbar-toggler" for="toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+
+            <ul class="nav-list">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="pages/character.html">Character</a></li>
+                <li class="nav-item"><a href="pages/gallery.html">Gallery</a></li>
+                <li class="nav-item"><a href="pages/detail1.html">Kusastu</a></li>
+                <li class="nav-item"><a href="pages/detail2.html">Subaru</a></li>
+
+            </ul> 
         </nav>
 
         <!-- This is a main section having two block containers -->

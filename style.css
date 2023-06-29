@@ -1,54 +1,121 @@
-*{
+*, 
+*::after, 
+*::before {
     margin: 0 ;
     padding: 0 ;
     box-sizing: border-box;
+    list-style: none;
 }
 
 html {
     --body-color: #0f0e17;
-    --primaly-color: #fffffe;
+    --primary-color: #fffffe;
     --secondary-color: #ff8906;
     --paragraph-color: #a7a9be;
 }
 
-/* ----------------------------- For Mobile ----------------------------- */
 body {
     background-color: var(--body-color);
 }
 
+/* ----------------------------- For Desktop ----------------------------- */
 a {
-    padding: 0 10px;
+    padding: 0 20px;
     text-decoration: none;
-    font-size: 1em;
-    color: var(--paragraph-color);
+    font-size: 1.5em;
+    color: var(--primary-color);
 }
 
 h1 {
-    font-size: 1.5em;
+    font-size: 2.5em;
     color: var(--secondary-color);
 }
 
 p {
-    font-size: 1em;
+    font-size: 1.5em;
     color: var(--paragraph-color);
 }
 
 /* nav */
 nav {
     display: flex; 
-    align-items: center;
     justify-content: space-between;
-
-    height: 5vh;
-    background-color: var(--primary-color);
+    align-items: center;
+    padding: 0 10%;
+    height: 10vh;
+    line-height: 10vh;
+    background-color: var(--body-color);
 }
 
-nav img {
+nav .navbar-name {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+nav .nav-list {
+    display: flex;
+}
+
+nav .nav-list .nav-item {
+    cursor: pointer;
+    height: 100%;
+    padding: 0 20px;
+    transition: .4s;
+}
+
+nav .nav-list .nav-item:hover {
+    background-color: rgba(255,137,6,.7);
+}
+
+nav .nav-list .nav-link {
+    color: var(--primary-color);
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+/* Hamberger menu */
+
+nav .navbar-toggler {
+    display: none;
+    height: min-content;
+    margin: 5px 20px 0 0;
+    cursor: pointer;
+}
+
+nav .navbar-toggler .bar {
+    width: 40px;
+    height: 5px;
+    margin-bottom: 5px;
+    background: #ffffff;
+    border-radius: 10%;
+    transition: .4s;
+}
+
+input {
     display: none;
 }
 
-#home {
-    margin-left: auto; /* This property means giving the left side the remaining space */
+input:checked ~ nav .nav-list {
+    transform: translateY(0);
+}
+
+input:checked ~ nav .navbar-toggler {
+    margin-top: 5px;
+}
+
+input:checked ~ nav .navbar-toggler .bar:nth-child(1) {
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+input:checked ~ nav .navbar-toggler .bar:nth-child(2) {
+    display: none;
+}
+
+input:checked ~ nav .navbar-toggler .bar:nth-child(3) {
+    transform: rotate(-45deg);
 }
 
 /* footer */
@@ -56,13 +123,13 @@ footer {
     display: flex; 
     justify-content: center;
     align-items: center;
-    height: 5vh;
-    background-color: var(--primary-color);
+    height: 10vh;
+    background-color: var(--body-color);
 }
 
 /* index */
 .index {
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 /* container named "hero" */
@@ -71,7 +138,7 @@ footer {
 }
 
 .hero img {
-    height: 20vh;
+    height: 40vh;
     width: 100%;
     object-fit:cover /* maintain vertical and horizontal image proportions */
 }
@@ -81,10 +148,9 @@ footer {
     top: 50%;  /* move the top corner of the element to the center of its parent */
     left: 50%; /* move the left corner of the element to the center of its parent */
     transform: translate(-50%, -50%); /* move the center of the element to the center of its parent */
-    font-size: 2.5em;
-    font-weight: 700;
-    color: white;
-    text-align: center;
+    font-size: 6em;
+    font-weight: 800;
+    color: var(--primary-color);
 }
 
 /* container named "introduction" */
@@ -92,13 +158,13 @@ footer {
 .introduction p {
     text-align: center;
     margin-top: 20px;
-    padding: 0 10vw;
+    padding: 0 20vw;
 }
 
 .point {
     color: var(--secondary-color);
-    font-size: 1em;
-    font-weight: 600;
+    font-size: 1.1em;
+    font-weight: 550;
     text-decoration: underline var(--secondary-color);
 }
 
@@ -112,14 +178,14 @@ footer {
 /* character */
 .character {
     margin: 5vh 10vw;
-    padding: 20px;
+    padding: 30px;
     border: .5em solid var(--secondary-color);
     text-align: center;
 }
 
 .character img {
-    width: 300px;
-    height: 450px;
+    width: 500px;
+    height: 500px;
     object-fit: cover;
     margin: 0 auto;
 }
@@ -135,37 +201,35 @@ footer {
     flex-direction: column; /* display links vertically */
     
     width: 20%;
-    padding-top: 20px;
+    padding-top: 50px;
     text-align: center;
     background-color: var(--body-color);
-    border-right: 1px solid var(--primaly-color);
+    border-right: 1px solid var(--secondary-color);
 }
 
 .sidebar li {
-    height: 1.5em;
+    height: 2em;
 }
 
 /* container named "gallery" */
 .gallery {
     width: 80%;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
 .gallery h1 {
     text-align: center;
     margin-top: 20px;
-    padding: 0 10vw;
+    padding: 0 20vw;
 }
 
 .item-container {
-    display: grid;
-    grid-template-columns: repeat(1, 250px);
-    grid-template-rows: repeat(14, 250px);
-    gap: 5vw;
     margin: 0 auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 250px;
+    display: grid;
+    grid-template-columns: repeat(4, 270px);
+    grid-template-rows: repeat(4, 270px);
+    gap: 1vw;
+    width: 1130px;
 }
 
 .img-container {
@@ -179,8 +243,8 @@ footer {
 
 .img-container img {
     transition: .5s all;
-    width: 250px;
-    height: 250px;
+    width: 270px;
+    height: 270px;
     object-fit: cover;
     margin: 0 auto;
 }
@@ -192,13 +256,13 @@ footer {
 
 /* detail1 & detail2 */
 .detail1-container, .detail2-container {
-    padding: 20px;
+    padding: 50px;
 }
 
 .detail1-container img {
     float: left;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
 
     margin-right: 20px;
@@ -207,8 +271,8 @@ footer {
 
 .detail2-container img {
     float: right;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
 
     margin-left: 20px;
@@ -225,13 +289,14 @@ footer {
 
 
 
+
 /* ----------------------------- For Tablet ----------------------------- */
-@media (min-width:750px) {
+@media (max-width:970px) {
     a {
         padding: 0 20px;
         text-decoration: none;
         font-size: 1.2em;
-        color: var(--paragraph-color);
+        color: var(--primary-color);
     }
     
     h1 {
@@ -247,19 +312,38 @@ footer {
     /* nav */
     nav {
         display: flex; 
-        align-items: center;
         justify-content: space-between;
-    
-        height: 7vh;
+        padding: 0 3px;
+        height: 8vh;
+        line-height: 8vh;
         background-color: var(--body-color);
     }
-
-    nav img {
-        height: 5vh;
+    
+    nav .navbar-name {
+        color: var(--primary-color);
+        font-size: 1.2em;
+        font-weight: 600;
+        letter-spacing: .5px;
     }
     
-    #home {
-        margin-left: auto; /* This property means giving the left side the remaining space */
+    nav .nav-list {
+        display: flex;
+    }
+    
+    nav .nav-list .nav-item {
+        cursor: pointer;
+        height: 100%;
+        padding: 0 10px;
+        transition: .4s;
+    }
+
+    nav .nav-list .nav-item:hover {
+        background-color: rgba(255,137,6,.7);
+    }
+
+    nav .nav-list .nav-link {
+        font-size: 1em;
+        font-weight: 400;
     }
     
     /* footer */
@@ -294,7 +378,7 @@ footer {
         transform: translate(-50%, -50%); /* move the center of the element to the center of its parent */
         font-size: 4em;
         font-weight: 700;
-        color: var(--primaly-color);
+        color: var(--primary-color);
         text-align: center;
     }
     
@@ -324,7 +408,7 @@ footer {
     .character {
         margin: 5vh 10vw;
         padding: 40px;
-        border: .5em solid var(--primary-color);
+        border: .5em solid var(--secondary-color);
         text-align: center;
     }
     
@@ -364,7 +448,7 @@ footer {
     .gallery h1 {
         text-align: center;
         margin-top: 20px;
-        padding: 0 10vw;
+        padding: 0 20vw;
     }
 
     .item-container {
@@ -435,39 +519,46 @@ footer {
 }
 
 
-/* ----------------------------- For Desktop ----------------------------- */
-@media (min-width:970px) {
-    a {
-        padding: 0 20px;
-        text-decoration: none;
-        font-size: 1.5em;
-        color: var(--paragraph-color);
-    }
-    
-    h1 {
-        font-size: 2.5em;
-        color: var(--secondary-color);
-    }
-    
-    p {
-        font-size: 1.5em;
-        color: var(--paragraph-color);
-    }
-    
+
+/* ----------------------------- For Mobile ----------------------------- */
+@media (max-width: 750px) {
     /* nav */
-    nav {
-        display: flex; 
-        align-items: center;
-        justify-content: space-between;
-    
-        height: 10vh;
-        background-color: var(--body-color);
+    nav .nav-list {
+        display: grid;
+        position: absolute;
+        background-color: rgba(15,14,23,0.8);
+        width: 100%;
+        top: 7vh;
+        left: 0;
+        transform: translateY(-150%);
+        z-index: 2;
+        transition: .6s;
     }
-    
-    #home {
-        margin-left: auto; /* This property means giving the left side the remaining space */
+
+    .nav-item a {
+        color: var(--primary-color);
     }
-    
+
+    nav .nav-list .nav-item {
+        cursor: pointer;
+        height: 100%;
+        padding-left: 30px;
+        transition: .4s;
+    }
+
+    nav .nav-list .nav-item:hover {
+        background-color: rgba(255,137,6,.7);
+    }
+
+    nav .nav-list .nav-link {
+        font-size: 1em;
+        font-weight: 400;
+    }
+
+    nav .navbar-toggler {
+        display: grid;
+    }
+
     /* footer */
     footer {
         display: flex; 
@@ -476,19 +567,37 @@ footer {
         height: 10vh;
         background-color: var(--body-color);
     }
+
+    a {
+        padding: 0 10px;
+        text-decoration: none;
+        font-size: 1em;
+        color: var(--primary-color);
+    }
+    
+    h1 {
+        font-size: 1.5em;
+        color: var(--secondary-color);
+    }
+    
+    p {
+        font-size: 1em;
+        color: var(--paragraph-color);
+    }
     
     /* index */
     .index {
-        padding-bottom: 20px;
+        padding-bottom: 10px;
     }
     
     /* container named "hero" */
     .hero {
         position: relative; /* specify "relative" to place <h1> in the specified location */
+        z-index: -2;
     }
     
     .hero img {
-        height: 40vh;
+        height: 20vh;
         width: 100%;
         object-fit:cover /* maintain vertical and horizontal image proportions */
     }
@@ -498,9 +607,11 @@ footer {
         top: 50%;  /* move the top corner of the element to the center of its parent */
         left: 50%; /* move the left corner of the element to the center of its parent */
         transform: translate(-50%, -50%); /* move the center of the element to the center of its parent */
-        font-size: 6em;
-        font-weight: 800;
-        color: var(--primaly-color);
+        font-size: 2.5em;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-align: center;
+        z-index: 1;
     }
     
     /* container named "introduction" */
@@ -508,16 +619,16 @@ footer {
     .introduction p {
         text-align: center;
         margin-top: 20px;
-        padding: 0 20vw;
+        padding: 0 10vw;
     }
     
     .point {
         color: var(--secondary-color);
-        font-size: 1.1em;
-        font-weight: 550;
+        font-size: 1em;
+        font-weight: 600;
         text-decoration: underline var(--secondary-color);
     }
-
+    
     /* title-chara */
     .title-chara {
         text-align: center;
@@ -528,14 +639,14 @@ footer {
     /* character */
     .character {
         margin: 5vh 10vw;
-        padding: 30px;
+        padding: 20px;
         border: .5em solid var(--secondary-color);
         text-align: center;
     }
     
     .character img {
-        width: 500px;
-        height: 500px;
+        width: 300px;
+        height: 450px;
         object-fit: cover;
         margin: 0 auto;
     }
@@ -551,41 +662,43 @@ footer {
         flex-direction: column; /* display links vertically */
         
         width: 20%;
-        padding-top: 50px;
+        padding-top: 20px;
         text-align: center;
         background-color: var(--body-color);
-        border-right: 1px solid var(--secondary-color);
+        border-right: 1px solid var(--primary-color);
     }
     
     .sidebar li {
-        height: 2em;
+        height: 1.5em;
     }
     
     /* container named "gallery" */
     .gallery {
         width: 80%;
-        margin: 20px auto;
+        margin: 0 auto;
     }
-
+    
     .gallery h1 {
         text-align: center;
         margin-top: 20px;
-        padding: 0 20vw;
+        padding: 0 10vw;
     }
-
+    
     .item-container {
-        margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(4, 270px);
-        grid-template-rows: repeat(4, 270px);
-        gap: 1vw;
-        width: 1130px;
+        grid-template-columns: repeat(1, 250px);
+        grid-template-rows: repeat(14, 250px);
+        gap: 5vw;
+        margin: 0 auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 250px;
     }
-
+    
     .img-container {
         overflow: hidden;
     }
-
+    
     .img-container a {
         padding: 0;
         margin: 0;
@@ -593,8 +706,8 @@ footer {
     
     .img-container img {
         transition: .5s all;
-        width: 270px;
-        height: 270px;
+        width: 250px;
+        height: 250px;
         object-fit: cover;
         margin: 0 auto;
     }
@@ -606,13 +719,13 @@ footer {
     
     /* detail1 & detail2 */
     .detail1-container, .detail2-container {
-        padding: 50px;
+        padding: 20px;
     }
     
     .detail1-container img {
         float: left;
-        width: 300px;
-        height: 300px;
+        width: 200px;
+        height: 200px;
         object-fit: cover;
     
         margin-right: 20px;
@@ -621,8 +734,8 @@ footer {
     
     .detail2-container img {
         float: right;
-        width: 300px;
-        height: 300px;
+        width: 200px;
+        height: 200px;
         object-fit: cover;
     
         margin-left: 20px;
@@ -637,3 +750,4 @@ footer {
         text-align: left;
     }
 }
+
